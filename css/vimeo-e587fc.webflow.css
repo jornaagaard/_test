@@ -1,0 +1,47 @@
+.cycle-slideshow {
+  position: relative;
+  z-index: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+.cycle-slide {
+  width: 100%;
+  height: 100vh;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  background-image: -webkit-linear-gradient(343deg, #000, #fff);
+  background-image: linear-gradient(107deg, #000, #fff);
+}
+
+.html-embed {
+  height: 70vh;
+  margin-top: 15vh;
+  margin-right: 10%;
+  margin-left: 10%;
+  background-color: #0098ff;
+}
+
+.slider-nav {
+  position: fixed;
+  top: 40px;
+  right: 30px;
+  z-index: 10;
+}
+
+.slider-control {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #000;
+  text-decoration: none;
+}
