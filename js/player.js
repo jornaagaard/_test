@@ -9,7 +9,8 @@ const createAudioControls = function(classes) {
         timelineCurrent: ".audio-timeline-current",
         timeline: ".audio-timeline",
         timecode: ".audio-timecode"
-   
+      };
+
   function getAudioElements(event) {
     const wrapper = event.target.closest(classes.wrapper);
     const audio = wrapper.querySelector(classes.audio);
@@ -28,6 +29,7 @@ const createAudioControls = function(classes) {
       timeline,
       timecode
     };
+  }
 
   function getAllAudioElements() {
     const audios = document.querySelectorAll(classes.audio);
@@ -46,6 +48,7 @@ const createAudioControls = function(classes) {
       timelines,
       timecodes
     };
+  }
 
   function togglePlay(event) {
     const audio = getAudioElements(event).audio;
@@ -54,6 +57,7 @@ const createAudioControls = function(classes) {
     } else {
       audio.pause();
     }
+  }
 
   function updateButton(event) {
     const wrapper = getAudioElements(event);
@@ -64,12 +68,14 @@ const createAudioControls = function(classes) {
       wrapper.playButton.style.display = "none";
       wrapper.pauseButton.style.display = "flex";
     }
+  }
 
   function handleProgress() {
     const wrapper = getAudioElements(event);
     const percent =
       (wrapper.audio.currentTime / wrapper.audio.duration) * 100;
     wrapper.timelineCurrent.style.flexBasis = `${percent}%`;
+  }
 
   function displayTimeCode(event) {
     const wrapper = getAudioElements(event);
@@ -90,6 +96,7 @@ const createAudioControls = function(classes) {
       ":" +
       (durSec < 10 ? "0" : "") +
       durSec;
+  }
 
   function scrub(event) {
     const wrapper = getAudioElements(event);
@@ -97,6 +104,7 @@ const createAudioControls = function(classes) {
       (event.offsetX / wrapper.timeline.offsetWidth) *
       wrapper.audio.duration;
     wrapper.audio.currentTime = scrubTime;
+  }
 
   function initialVolume() {
     const audios = document.querySelectorAll(classes.audio);
@@ -104,10 +112,13 @@ const createAudioControls = function(classes) {
       audios[i].volume = 1;
     }
   }
-  initialVolu
-  let mousedown = f
+  initialVolume();
+
+  let mousedown = false;
+
   function setEventListeners() {
-    const wrappers = getAllAudioElemen
+    const wrappers = getAllAudioElements();
+
     wrappers.audios.forEach(audio => {
       audio.addEventListener("play", updateButton);
       audio.addEventListener("pause", updateButton);
@@ -139,4 +150,3 @@ createAudioControls({
   timeline: ".audio-timeline",
   timecode: ".audio-timecode"
 });
-    
